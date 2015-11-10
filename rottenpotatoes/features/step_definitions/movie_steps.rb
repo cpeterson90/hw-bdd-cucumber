@@ -21,6 +21,7 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
       fail "The words are out of order."
     else if word == e1
       temp = word
+      #something new
       end
     end
   end
