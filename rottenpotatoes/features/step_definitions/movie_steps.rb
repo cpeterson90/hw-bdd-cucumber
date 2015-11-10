@@ -4,6 +4,7 @@ Given /the following movies exist/ do |movies_table|
   movies_table.hashes.each do |movie|
     # each returned element will be a hash whose key is the table header.
     # you should arrange to add that movie to the database here.
+    movies_table.add(movie)
   end
   fail "Unimplemented"
 end
@@ -14,7 +15,16 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+  # use a regex expression
+  page.body.each do |word|
+    if word == e2 
+      fail "The words are out of order."
+    else if word == e1
+      temp = word
+      end
+    end
+  end
+  
 end
 
 # Make it easier to express checking or unchecking several boxes at once
